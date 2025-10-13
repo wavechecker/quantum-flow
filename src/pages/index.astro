@@ -35,17 +35,19 @@ const schema = {
     <meta name="theme-color" content="#070b12" />
     <link rel="icon" href="/favicon.svg" />
     <link rel="stylesheet" href="/global.css" />
-    <!-- NEW: three.js background styles -->
+    <!-- three.js background styles -->
     <link rel="stylesheet" href="/legacy-effect.css" />
+    <!-- ensure content stacks above the background layer -->
+    <style>.wrap{position:relative;z-index:1}</style>
     <script type="application/ld+json">{JSON.stringify(schema)}</script>
   </head>
   <body>
-    <!-- NEW: three.js background layer -->
+    <!-- three.js background layer -->
     <div id="legacy-bg" aria-hidden="true">
       <canvas id="qf-canvas"></canvas>
     </div>
 
-    <!-- (removed old CSS swirl layers so the three.js effect is visible)
+    <!-- removed old CSS swirl layers for clarity
     <div class="bgfx" aria-hidden="true"></div>
     <div class="gridfx" aria-hidden="true"></div>
     -->
@@ -137,8 +139,8 @@ const schema = {
       </footer>
     </div>
 
-    <!-- NEW: three.js (CDN) and background init -->
-    <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js" defer></script>
+    <!-- three.js (LOCAL) and background init -->
+    <script src="/three.min.js" defer></script>
     <script src="/legacy-three.js" defer></script>
   </body>
 </html>
