@@ -1,0 +1,12 @@
+/* Fixed, full-viewport layer behind everything */
+#legacy-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -2;           /* below your content */
+  pointer-events: none;  /* never block clicks */
+}
+#legacy-bg canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
