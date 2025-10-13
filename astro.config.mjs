@@ -1,7 +1,5 @@
 import { defineConfig } from 'astro/config';
-
-// https://docs.astro.build/en/reference/configuration-reference/
 export default defineConfig({
-  site: 'https://quantumflow.netlify.app',
+  site: 'https://quantum-flow.netlify.app',
   output: 'static',
 });
