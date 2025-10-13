@@ -1,0 +1,42 @@
+:root {
+  --bg: #0b0e13;
+  --fg: #e6e9ef;
+  --muted: #a6adbb;
+  --accent: #6ee7ff;
+  --card: #11151d;
+  --border: #1c2330;
+}
+* { box-sizing: border-box; }
+html, body {
+  margin: 0; padding: 0;
+  background: radial-gradient(1200px 600px at 10% 0%, #0f1522 0%, var(--bg) 55%);
+  color: var(--fg);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1.6;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: 980px; margin: 0 auto; padding: 2rem; }
+header { padding: 1.25rem 0; display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+.brand { display:flex; align-items:center; gap:.75rem; }
+.brand svg { width: 28px; height: 28px; }
+nav { display:flex; gap:1rem; }
+.btn {
+  display:inline-block; padding:.7rem 1rem; border-radius: 12px; border:1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.0));
+  color: var(--fg);
+}
+.btn:hover { border-color: var(--accent); }
+.hero {
+  padding: 4rem 0 3rem; text-align: left;
+}
+.hero h1 { font-size: clamp(2rem, 4vw, 3rem); line-height:1.1; margin: 0 0 .5rem; }
+.hero p  { font-size: 1.125rem; color: var(--muted); max-width: 720px; }
+.grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:1rem; margin-top:1.5rem; }
+.card { background: var(--card); border:1px solid var(--border); border-radius: 16px; padding: 1.1rem; }
+.kicker { letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-size: .8rem; }
+.muted { color: var(--muted); }
+section { padding: 2rem 0; }
+footer { border-top:1px solid var(--border); margin-top: 2rem; padding: 2rem 0; color: var(--muted); font-size: .95rem; }
+.contact { display:flex; gap:1rem; flex-wrap:wrap; }
+.badge { display:inline-flex; align-items:center; gap:.5rem; font-size:.9rem; background:#0e121a; border:1px solid var(--border); border-radius:999px; padding:.4rem .7rem; }
