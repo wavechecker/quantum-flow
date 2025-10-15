@@ -1,14 +1,63 @@
+/* --- CSS FALLBACK (always shows unless JS turns it off) --- */
+.cssbg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;                 /* behind content, above page background */
+  pointer-events: none;
+  overflow: hidden;
+  background:
+    radial-gradient(1200px 600px at 10% -10%, #121a2b 0%, transparent 60%) no-repeat,
+    radial-gradient(900px 400px at 90% 0%, #0e1524 0%, transparent 60%) no-repeat,
+    radial-gradient(1000px 600px at 50% 120%, #0a111f 0%, transparent 60%) no-repeat;
+}
+.cssbg::before,
+.cssbg::after {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  background: conic-gradient(from 0deg, rgba(125,211,252,.10), rgba(167,139,250,.08), rgba(125,211,252,.10));
+  filter: blur(60px);
+  animation: swirl 22s linear infinite;
+  opacity: .8;
+  mix-blend-mode: screen;
+}
+.cssbg::after { animation-direction: reverse; animation-duration: 28s; }
+@keyframes swirl {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(180deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* subtle grid overlay */
+.gridfx {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background:
+    linear-gradient(to right, rgba(255,255,255,.03) 1px, transparent 1px) 0 0/40px 40px,
+    linear-gradient(to bottom, rgba(255,255,255,.03) 1px, transparent 1px) 0 0/40px 40px;
+  mask-image: radial-gradient(1200px 600px at 50% 20%, #000 30%, transparent 80%);
+  animation: drift 30s linear infinite;
+}
+@keyframes drift {
+  from { transform: translateY(0); }
+  to   { transform: translateY(20px); }
+}
+
+/* --- THREE.JS CANVAS LAYER (shown only if JS starts) --- */
 #legacy-bg {
   position: fixed;
   inset: 0;
-  z-index: -2;           /* sits behind all content */
-  pointer-events: none;  /* no blocking of clicks */
-  background: radial-gradient(circle at 50% 50%, #0b1019 0%, #05070b 100%);
+  z-index: 0;
+  pointer-events: none;
   overflow: hidden;
 }
-
 #legacy-bg canvas {
   width: 100%;
   height: 100%;
   display: block;
 }
+
+/* when JS waves are running, fade out the CSS fallback */
+body.bg-on .cssbg,
+body.bg-on .gridfx { opacity: 0; transition: opacity .6s ease; }

@@ -35,22 +35,21 @@ const schema = {
     <meta name="theme-color" content="#070b12" />
     <link rel="icon" href="/favicon.svg" />
     <link rel="stylesheet" href="/global.css" />
-    <!-- three.js background styles -->
+    <!-- CSS fallback + three.js canvas styles -->
     <link rel="stylesheet" href="/legacy-effect.css" />
-    <!-- ensure content stacks above the background layer -->
+    <!-- ensure content stacks above the background layers -->
     <style>.wrap{position:relative;z-index:1}</style>
     <script type="application/ld+json">{JSON.stringify(schema)}</script>
   </head>
   <body>
-    <!-- three.js background layer -->
+    <!-- CSS animated fallback (shows immediately; fades out when JS starts) -->
+    <div class="cssbg" aria-hidden="true"></div>
+    <div class="gridfx" aria-hidden="true"></div>
+
+    <!-- three.js background layer (hides fallback on success) -->
     <div id="legacy-bg" aria-hidden="true">
       <canvas id="qf-canvas"></canvas>
     </div>
-
-    <!-- removed old CSS swirl layers for clarity
-    <div class="bgfx" aria-hidden="true"></div>
-    <div class="gridfx" aria-hidden="true"></div>
-    -->
 
     <div class="wrap">
       <header>
